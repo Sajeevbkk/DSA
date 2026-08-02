@@ -1,6 +1,6 @@
 /* Using Circular Queue */
 
-#include "7_queue.h"
+#include "8_circular_queue.h"
 #include <stdio.h>
 
 int main() {
