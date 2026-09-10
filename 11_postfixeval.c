@@ -7,92 +7,93 @@
 
 #define MAX 50
 
-int stack[MAX];
-int top = -1;
+struct Stack {
+    int top;
+    int items[MAX];
+};
 
-void push(int val) {
-    if (top >= MAX - 1) {
-        printf("Error: Stack overflow\n");
-        exit(1);
-    }
-    stack[++top] = val;
+struct Stack* createStack() {
+    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+    stack->top = -1;
+    return stack;
 }
 
-int pop(void) {
-    if (top < 0) {
-        printf("Error: Invalid postfix expression\n");
-        exit(1);
+void push(struct Stack* s, int item) {
+    if (s->top >= MAX - 1) {
+        printf("Stack overflow\n");
+        return;
     }
-    return stack[top--];
+    s->items[++(s->top)] = item;
 }
 
-int evaluatePostfix(char *exp) {
-    char *token = strtok(exp, " \t\n");
+int pop(struct Stack* s) {
+    if (s->top == -1) {
+        return -999999;
+    }
+    return s->items[(s->top)--];
+}
 
-    while (token != NULL) {
-        if (isdigit(token[0]) || (token[0] == '-' && isdigit(token[1]))) {
-            push(atoi(token));
-        } else if (strlen(token) == 1 && strchr("+-*/^", token[0])) {
-            if (top < 1) {
-                printf("Error: Invalid postfix expression\n");
-                exit(1);
+int main() {
+    struct Stack* stack = createStack();
+    char postfix[MAX];
+    printf("Enter the postfix expression: ");
+    fgets(postfix, MAX, stdin);
+    if (postfix[strlen(postfix) - 1] == '\n') {
+        postfix[strlen(postfix) - 1] = '\0';
+    }
+
+    for (int i = 0; postfix[i]; i++) {
+        if (isdigit(postfix[i])) {
+            char numBuffer[10];
+            int numIndex = 0;
+            while(isdigit(postfix[i])) {
+                numBuffer[numIndex++] = postfix[i];
+                i++;
             }
-            int A = pop();
-            int B = pop();
-            int result;
+            i--; // To avoid double increment from while & outer for
+            numBuffer[numIndex] = '\0';
+            push(stack, atoi(numBuffer));
+        } else if (postfix[i] == ' ' || postfix[i] == '\t') {
+            continue;
+        } else {
+            int val2 = pop(stack);
+            int val1 = pop(stack);
 
-            switch (token[0]) {
+            if (val1 == -999999 || val2 == -999999) {
+                printf("Invalid postfix expression\n");
+                free(stack);
+                return -1;
+            }
+
+            switch (postfix[i]) {
                 case '+':
-                    result = B + A;
+                    push(stack, val1 + val2);
                     break;
                 case '-':
-                    result = B - A;
+                    push(stack, val1 - val2);
                     break;
                 case '*':
-                    result = B * A;
+                    push(stack, val1 * val2);
                     break;
                 case '/':
-                    if (A == 0) {
-                        printf("Error: Division by zero\n");
-                        exit(1);
+                    if (val2 == 0) {
+                        printf("Division by zero error\n");
+                        free(stack);
+                        return -1;
                     }
-                    result = B / A;
+                    push(stack, val1 / val2);
                     break;
-                case '^': {
-                    result = 1;
-                    for (int i = 0; i < A; i++) {
-                        result *= B;
-                    }
-                    break;
-                }
                 default:
-                    printf("Error: Unknown operator\n");
-                    exit(1);
+                    printf("Invalid operator: %c\n", postfix[i]);
+                    free(stack);
+                    return -1;
             }
-            push(result);
-        } else {
-            printf("Error: Invalid token\n");
-            exit(1);
         }
-        token = strtok(NULL, " \t\n");
+
     }
 
-    if (top != 0) {
-        printf("Error: Malformed expression\n");
-        exit(1);
-    }
+    printf("Result: %d\n", pop(stack));
 
-    return pop();
-}
-
-int main(void) {
-    char exp[256];
-
-    if (fgets(exp, sizeof(exp), stdin) != NULL) {
-        int result = evaluatePostfix(exp);
-        printf("%d\n", result);
-    }
-
+    free(stack);
     return 0;
 }
-
