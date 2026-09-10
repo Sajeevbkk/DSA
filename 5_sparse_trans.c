@@ -27,6 +27,21 @@ int main() {
         transpose[i][2] = sparse[i][2];
     }
 
+    // Sort the transposed matrix based on row and column
+    for (int i = 1; i <= non_zero; i++) {
+        for (int j = i + 1; j <= non_zero; j++) {
+            if ((transpose[i][0] > transpose[j][0]) || 
+                (transpose[i][0] == transpose[j][0] && transpose[i][1] > transpose[j][1])) {
+                
+                for (int k = 0; k < 3; k++) {
+                    int temp = transpose[i][k];
+                    transpose[i][k] = transpose[j][k];
+                    transpose[j][k] = temp;
+                }
+            }
+        }
+    }
+
     // Display the transposed matrix
     printf("\nThe transposed matrix is:\n");
     for (int i = 0; i <= non_zero; i++) {
