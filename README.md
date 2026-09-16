@@ -14,4 +14,8 @@ This repository contains C programs written for various lab problems in data str
 * **8_circular_queue.c**: Circular queue implementation
 * **9_dequeue.c**: Double-ended queue (deque) implementation
 * **10_infixtopostfix.c**: Infix to postfix expression conversion
-* **11_postfixeval.c**: Postfix expression evaluation
+* **11_postfix_evaluation.c**: Postfix expression evaluation
+* **12_single_linked_list.c**: Singly linked list implementation
+* **13_doubly_linked_list.c**: Doubly linked list implementation
+* **14_stack_linked_list.c**: Stack implementation using linked list
+* **15_queue_linked_list.c**: Queue implementation using linked list
