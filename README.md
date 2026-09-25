@@ -4,18 +4,20 @@ This repository contains C programs written for various lab problems in data str
 
 ## List of Programs
 
-* **1_matrix_add.c**: Matrix addition
-* **2_polynomial_add.c**: Polynomial addition
-* **3_matrix_to_sparse.c**: Matrix to sparse matrix conversion
-* **4_sparse_matrix_add.c**: Sparse matrix addition
-* **5_sparse_trans.c**: Sparse matrix transpose
-* **6_stack.c**: Stack implementation
-* **7_standard_queue.c**: Standard queue implementation
-* **8_circular_queue.c**: Circular queue implementation
-* **9_dequeue.c**: Double-ended queue (deque) implementation
-* **10_infixtopostfix.c**: Infix to postfix expression conversion
-* **11_postfix_evaluation.c**: Postfix expression evaluation
-* **12_single_linked_list.c**: Singly linked list implementation
-* **13_doubly_linked_list.c**: Doubly linked list implementation
-* **14_stack_linked_list.c**: Stack implementation using linked list
-* **15_queue_linked_list.c**: Queue implementation using linked list
+- **1_matrix_add.c**: Matrix addition
+- **2_polynomial_add.c**: Polynomial addition
+- **3_matrix_to_sparse.c**: Matrix to sparse matrix conversion
+- **4_sparse_matrix_add.c**: Sparse matrix addition
+- **5_sparse_trans.c**: Sparse matrix transpose
+- **6_stack.c**: Stack implementation
+- **7_standard_queue.c**: Standard queue implementation
+- **8_circular_queue.c**: Circular queue implementation
+- **9_dequeue.c**: Double-ended queue (deque) implementation
+- **10_infixtopostfix.c**: Infix to postfix expression conversion
+- **11_postfix_evaluation.c**: Postfix expression evaluation
+- **12_single_linked_list.c**: Singly linked list implementation
+- **13_doubly_linked_list.c**: Doubly linked list implementation
+- **14_stack_linked_list.c**: Stack implementation using linked list
+- **15_queue_linked_list.c**: Queue implementation using linked list
+
+**_Note_:** All programs till 12 is verified. Others need to be verified.
