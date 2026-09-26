@@ -20,4 +20,4 @@ This repository contains C programs written for various lab problems in data str
 - **14_stack_linked_list.c**: Stack implementation using linked list
 - **15_queue_linked_list.c**: Queue implementation using linked list
 
-**_Note_:** All programs till 12 is verified. Others need to be verified.
+**_Note_:** All programs are verified to be based on Algorithms of Betty Miss. No AI Slop. Thank You

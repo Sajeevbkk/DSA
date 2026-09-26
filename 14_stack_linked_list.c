@@ -10,14 +10,19 @@ struct Node {
 
 struct Node *top = NULL;
 
-void push(int val) {
+void push() {
+    int val;
+    printf("Enter value: ");
+    scanf("%d", &val);
+
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    if (newNode == NULL) {
-        printf("Stack Overflow\n");
-        return;
-    }
     newNode->data = val;
     newNode->next = top;
+
+    if (top != NULL) {
+        newNode->next= top;
+    }
+    
     top = newNode;
 }
 
@@ -27,10 +32,9 @@ int pop() {
         return -1;
     }
     struct Node *temp = top;
-    int val = temp->data;
     top = top->next;
+    printf("Popped element: %d\n", temp->data);
     free(temp);
-    return val;
 }
 
 void display() {
@@ -59,15 +63,10 @@ int main() {
 
         switch (choice) {
             case 1:
-                printf("Enter value to push: ");
-                scanf("%d", &value);
-                push(value);
+                push();
                 break;
             case 2:
-                value = pop();
-                if (value != -1) {
-                    printf("Popped value: %d\n", value);
-                }
+                pop();
                 break;
             case 3:
                 display();

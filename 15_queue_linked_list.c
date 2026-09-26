@@ -11,16 +11,16 @@ struct Node {
 struct Node *front = NULL;
 struct Node *rear = NULL;
 
-void enqueue(int val) {
+void enqueue() {
+    int val;
+    printf("Enter value to enqueue: ");
+    scanf("%d", &val);
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    if (newNode == NULL) {
-        printf("Queue Overflow\n");
-        return;
-    }
+
     newNode->data = val;
     newNode->next = NULL;
 
-    if (front == NULL) {
+    if (front == NULL && rear == NULL) {
         front = rear = newNode;
     } else {
         rear->next = newNode;
@@ -28,26 +28,22 @@ void enqueue(int val) {
     }
 }
 
-int dequeue() {
-    if (front == NULL) {
+void dequeue() {
+    if (front == NULL && rear == NULL) {
         printf("Queue Underflow\n");
-        return -1;
+        return;
     }
     struct Node *temp = front;
     int val = temp->data;
     front = front->next;
-
-    if (front == NULL) {
-        rear = NULL;
-    }
-
+    printf("Dequeued: %d\n", val);
     free(temp);
-    return val;
+    if (front == NULL) rear = NULL;
 }
 
 void display() {
-    if (front == NULL) {
-        printf("Queue Underflow\n");
+    if (front == NULL && rear == NULL) {
+        printf("Queue Empty\n");
         return;
     }
     printf("Displaying Contents:\n");
@@ -71,15 +67,10 @@ int main() {
 
         switch (choice) {
             case 1:
-                printf("Enter value to enqueue: ");
-                scanf("%d", &value);
-                enqueue(value);
+                enqueue();
                 break;
             case 2:
-                value = dequeue();
-                if (value != -1) {
-                    printf("Dequeued value: %d\n", value);
-                }
+                dequeue();
                 break;
             case 3:
                 display();
