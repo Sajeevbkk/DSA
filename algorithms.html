@@ -122,13 +122,499 @@
       <!-- 12. Singly Linked List -->
       <li>
         <h2>Singly Linked List</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>
+            Repeat until user choose to exit:
+            <ol>
+              <li>
+                Display Menu: Insert at Beginning, Insert at Middle, Insert at
+                End, Delete at Beginning, Delete at Middle, Delete at End,
+                Display, Exit
+              </li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert at Beginning</strong>
+            <ol>
+              <li>Read <code>val</code></li>
+              <li><code>newNode = malloc(sizeof(struct Node))</code></li>
+              <li><code>newNode.data = val</code></li>
+              <li><code>newNode.next = NULL</code></li>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li><code>head = newNode</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>newNode.next = head</code></li>
+                  <li><code>head = newNode</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert at Middle</strong>
+            <ol>
+              <li>Read <code>val</code>, <code>key</code></li>
+              <li><code>newNode = malloc(sizeof(struct Node))</code></li>
+              <li><code>newNode.data = val</code></li>
+              <li><code>newnode.next = NULL</code></li>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                while (<code>temp != NULL</code> and
+                <code>temp.data != key</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li>
+                if (<code>temp == NULL</code>) then
+                <ol>
+                  <li>print ("Key not found!")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+
+              <li><code>newNode.next = temp.next</code></li>
+              <li><code>temp.next = newNode</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert at End</strong>
+            <ol>
+              <li>Read <code>val</code></li>
+              <li><code>newNode = malloc(sizeof(struct Node))</code></li>
+              <li><code>newNode.data = val</code></li>
+              <li><code>newNode.next = NULL</code></li>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li><code>head = newNode</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                while (<code>temp.next != NULL</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li><code>temp.next = newNode</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Delete at Beginning</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li><code>head = head.next</code></li>
+              <li>print <code>temp.data</code></li>
+              <li><code>free(temp)</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Delete at Middle</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>Read <code>key</code></li>
+              <li>
+                if (<code>head.data == key</code>) then
+                <ol>
+                  <li><code>temp = head</code></li>
+                  <li><code>head = head.next</code></li>
+                  <li>print <code>temp.data</code></li>
+                  <li><code>free(temp)</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                while (<code>temp.next != NULL</code> and
+                <code>temp.next.data != key</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li>
+                if (<code>temp.next == NULL</code>) then
+                <ol>
+                  <li>print ("Key not found!")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>delNode = temp.next</code></li>
+              <li><code>temp.next = delNode.next</code></li>
+              <li>print <code>delNode.data</code></li>
+              <li><code>free(delNode)</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Delete at End</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                if (<code>head.next == NULL</code>) then
+                <ol>
+                  <li><code>temp = head</code></li>
+                  <li><code>head = NULL</code></li>
+                  <li>print <code>temp.data</code></li>
+                  <li><code>free(temp)</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                while (<code>temp.next.next != NULL</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li><code>delNode = temp.next</code></li>
+              <li><code>temp.next = NULL</code></li>
+              <li>print <code>delNode.data</code></li>
+              <li><code>free(delNode)</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>ptr = head</code></li>
+                  <li>
+                    while (<code>ptr != NULL</code>)
+                    <ol>
+                      <li>print <code>ptr.data</code></li>
+                      <li><code>ptr = ptr.next</code></li>
+                    </ol>
+                  </li>
+                  <li>endwhile</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 13. Doubly Linked List -->
       <li>
         <h2>Doubly Linked List</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>
+            Repeat until user choose to exit:
+            <ol>
+              <li>
+                Display Menu: Insert at Beginning, Insert at Middle, Insert at
+                End, Delete at Beginning, Delete at Middle, Delete at End,
+                Display, Exit
+              </li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert at Beginning</strong>
+            <ol>
+              <li>Read <code>val</code></li>
+              <li><code>newNode = malloc(sizeof(struct Node))</code></li>
+              <li><code>newNode.data = val</code></li>
+              <li><code>newNode.prev = NULL</code></li>
+              <li><code>newNode.next = NULL</code></li>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li><code>head = newNode</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>newNode.next = head</code></li>
+                  <li><code>head.prev = newNode</code></li>
+                  <li><code>head = newNode</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert at Middle</strong>
+            <ol>
+              <li>Read <code>val</code>, <code>key</code></li>
+              <li><code>newNode = malloc(sizeof(struct Node))</code></li>
+              <li><code>newNode.data = val</code></li>
+              <li><code>newNode.prev = NULL</code></li>
+              <li><code>newNode.next = NULL</code></li>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List Empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                while (<code>temp != NULL</code> and
+                <code>temp.data != key</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li>
+                if (<code>temp == NULL</code>) then
+                <ol>
+                  <li>print ("Key not found")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+
+              <li><code>newNode.next = temp.next</code></li>
+              <li><code>newNode.prev = temp</code></li>
+              <li>
+                if (<code>temp.next != NULL</code>) then
+                <ol>
+                  <li><code>temp.next.prev = newNode</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp.next = newNode</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert at End</strong>
+            <ol>
+              <li>Read <code>val</code></li>
+              <li><code>newNode = malloc(sizeof(struct Node))</code></li>
+              <li><code>newNode.data = val</code></li>
+              <li><code>newNode.prev = NULL</code></li>
+              <li><code>newNode.next = NULL</code></li>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li><code>head = newNode</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                while (<code>temp.next != NULL</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li><code>temp.next = newNode</code></li>
+              <li><code>newNode.prev = temp</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Delete at Beginning</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li><code>head = head.next</code></li>
+              <li>
+                if (<code>head != NULL</code>) then
+                <ol>
+                  <li><code>head.prev = NULL</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>print <code>temp.data</code></li>
+              <li><code>free(temp)</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Delete at Middle</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>Read <code>key</code></li>
+              <li><code>temp = head</code></li>
+              <li>
+                if (<code>head.data == key</code>) then
+                <ol>
+                  <li><code>head = head.next</code></li>
+                  <li>
+                    if (<code>head != NULL</code>) then
+                    <ol>
+                      <li><code>head.prev = NULL</code></li>
+                    </ol>
+                  </li>
+                  <li>endif</li>
+                  <li>print <code>temp.data</code></li>
+                  <li><code>free(temp)</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                while (<code>temp != NULL</code> and
+                <code>temp.data != key</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li>
+                if (<code>temp == NULL</code>) then
+                <ol>
+                  <li>print ("Key not found")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp.prev.next = temp.next</code></li>
+              <li>
+                if (<code>temp.next != NULL</code>) then
+                <ol>
+                  <li><code>temp.next.prev = temp.prev</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>print <code>temp.data</code></li>
+              <li><code>free(temp)</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Delete at End</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>temp = head</code></li>
+              <li>
+                if (<code>head.next == NULL</code>) then
+                <ol>
+                  <li><code>head = NULL</code></li>
+                  <li>print <code>temp.data</code></li>
+                  <li><code>free(temp)</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                while (<code>temp.next != NULL</code>)
+                <ol>
+                  <li><code>temp = temp.next</code></li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li><code>temp.prev.next = NULL</code></li>
+              <li>print <code>temp.data</code></li>
+              <li><code>free(temp)</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>head == NULL</code>) then
+                <ol>
+                  <li>print ("List is empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>temp = head</code></li>
+                  <li>
+                    while (<code>temp != NULL</code>)
+                    <ol>
+                      <li>print <code>temp.data</code></li>
+                      <li><code>temp = temp.next</code></li>
+                    </ol>
+                  </li>
+                  <li>endwhile</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 14. Stack using Linked List -->
