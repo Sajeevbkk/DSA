@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA - Algorithms</title>
+    <style>
+      .mainlist > li::marker {
+        font-weight: bold;
+        font-size: 26px;
+      }
+
+      .procedure,
+      .procedure ol {
+        counter-reset: step;
+        list-style: none;
+        padding-inline-start: 0;
+        margin-inline-start: 0;
+      }
+
+      .procedure li {
+        counter-increment: step;
+      }
+
+      .procedure li::before {
+        content: counters(step, ".") ". ";
+      }
+
+      .procedure li.operation-header {
+        margin-top: 0.5em;
+        margin-bottom: 0.25em;
+      }
+
+      .procedure li.operation-header::before {
+        content: "> ";
+        font-weight: bold;
+        font-size: large;
+      }
+
+      .procedure li.no-number {
+        counter-increment: none;
+      }
+
+      .procedure li.no-number::before {
+        content: "";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Algorithms</h1>
+    <h3>Algorithms for the DSA lab programs</h3>
+
+    <ol class="mainlist">
+      <!-- Implements all other soon -->
+
+      <!-- 1. Matrix Addition -->
+      <li>
+        <h2>Matrix Addition</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 2. Polynomial Addition -->
+      <li>
+        <h2>Polynomial Addition</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 3. Sparse Matrix Representation -->
+      <li>
+        <h2>Sparse Matrix Representation</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 4. Sparse Matrix Addition -->
+      <li>
+        <h2>Sparse Matrix Addition</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 5. Transpose of Sparse Matrix -->
+      <li>
+        <h2>Transpose of Sparse Matrix</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 6. Stack using Array -->
+      <li>
+        <h2>Stack Using an Array</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 7. Queue using Array -->
+      <li>
+        <h2>Queue Using an Array</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 8. Circular Queue using Array -->
+      <li>
+        <h2>Circular Queue Using an Array</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 9. Dequeue using Array -->
+      <li>
+        <h2>Dequeue Using an Array</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 10. Infix to Postfix Conversion -->
+      <li>
+        <h2>Infix to Postfix Conversion</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 11. Postfix Evaluation -->
+      <li>
+        <h2>Postfix Evaluation</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 12. Singly Linked List -->
+      <li>
+        <h2>Singly Linked List</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 13. Doubly Linked List -->
+      <li>
+        <h2>Doubly Linked List</h2>
+        <i>Implemeting Soon</i>
+      </li>
+
+      <!-- 14. Stack using Linked List -->
+      <li>
+        <h2>Stack Using a Linked List</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>
+            Repeat until user choose to exit:
+            <ol>
+              <li>Display Menu: Push, Pop, Display, exit</li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Push</strong>
+            <ol>
+              <li>Read <code>item</code></li>
+              <li><code>newnode = malloc(sizeof(struct node))</code></li>
+              <li><code>newnode.data = item</code></li>
+              <li><code>newnode.next = NULL</code></li>
+              <li>
+                if (<code>TOP == NULL</code>) then
+                <ol>
+                  <li><code>TOP = newnode</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>newnode.next = TOP</code></li>
+                  <li><code>TOP = newnode</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Pop</strong>
+            <ol>
+              <li>
+                if (<code>TOP == NULL</code>) then
+                <ol>
+                  <li>print ("Stack Empty / Underflow")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>temp = TOP</code></li>
+                  <li><code>TOP = TOP.next</code></li>
+                  <li>print <code>temp.data</code></li>
+                  <li><code>free(temp)</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>TOP == NULL</code>) then
+                <ol>
+                  <li>print ("Stack Empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>ptr = TOP</code></li>
+                  <li>
+                    while (<code>ptr != NULL</code>)
+                    <ol>
+                      <li>print <code>ptr.data</code></li>
+                      <li><code>ptr = ptr.next</code></li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>endwhile</li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 15. Queue using Linked List -->
+      <li>
+        <h2>Queue Using a Linked List</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>
+            Repeat until user choose to exit:
+            <ol>
+              <li>Display Menu: Enqueu, Dequeue, Display, exit</li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Enqueue</strong>
+            <ol>
+              <li>Read <code>item</code></li>
+              <li><code>newnode = malloc(sizeof(struct node))</code></li>
+              <li><code>newnode.data = item</code></li>
+              <li><code>newnode.next = NULL</code></li>
+              <li>
+                if (<code>FRONT == NULL</code> and <code>REAR == NULL</code>)
+                then
+                <ol>
+                  <li><code>FRONT = newnode</code></li>
+                  <li><code>REAR = newnode</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>REAR.next = newnode</code></li>
+                  <li><code>REAR = newnode</code></li>
+                  <li>endif</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Dequeue</strong>
+            <ol>
+              <li>
+                if (<code>FRONT == NULL</code>) then
+                <ol>
+                  <li>print ("Queue Empty / Underflow")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>temp = FRONT</code></li>
+                  <li><code>FRONT = FRONT.next</code></li>
+                  <li>print <code>temp.data</code></li>
+                  <li><code>free(temp)</code></li>
+                  <li>
+                    if (<code>FRONT == NULL</code>) then
+                    <ol>
+                      <li><code>REAR = NULL</code></li>
+                    </ol>
+                  </li>
+                  <li>endif</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>FRONT == NULL</code>) then
+                <ol>
+                  <li>print ("Queue Empty")</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>ptr = FRONT</code></li>
+                  <li>
+                    while (<code>ptr != NULL</code>)
+                    <ol>
+                      <li>print <code>ptr.data</code></li>
+                      <li><code>ptr = ptr.next</code></li>
+                    </ol>
+                  </li>
+                  <li>endwhile</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
+      </li>
+    </ol>
+  </body>
+</html>
