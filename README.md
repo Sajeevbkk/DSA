@@ -1,6 +1,6 @@
 # C Lab Programs
 
-This repository contains C programs written for various lab problems in data structures and algorithms.
+This repository contains C programs written for lab problems assigned by Betty Miss in data structures and algorithms.
 
 ## List of Programs
 
@@ -21,3 +21,5 @@ This repository contains C programs written for various lab problems in data str
 - **15_queue_linked_list.c**: Queue implementation using linked list
 
 **_Note_:** All programs are verified to be based on Algorithms of Betty Miss. No AI Slop. Thank You
+
+_Prepared for College of Engineering, Attingal 2026 S3 Batch_
