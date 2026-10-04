@@ -22,7 +22,7 @@ int main() {
 
 	while (left <= right) {
 		middle = (left + right) / 2;
-        printf("middle index = %d\tvalue = %d\n", middle, numbers[middle]);
+        printf("middle index = %d\tvalue = %d\n", middle + 1, numbers[middle]);
 
 		if (numbers[middle] == target) {
 			printf("Number found at position %d\n", middle + 1);
