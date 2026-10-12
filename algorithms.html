@@ -56,67 +56,631 @@
       <!-- 1. Matrix Addition -->
       <li>
         <h2>Matrix Addition</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the number of rows and columns of the matrices</li>
+          <li>Read all elements of the first matrix</li>
+          <li>Read all elements of the second matrix</li>
+          <li>
+            For each row <code>i</code> and column <code>j</code>
+            <ol>
+              <li><code>result[i][j] = A[i][j] + B[i][j]</code></li>
+            </ol>
+          </li>
+          <li>Display the result matrix</li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 2. Polynomial Addition -->
       <li>
         <h2>Polynomial Addition</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the number of terms in polynomial 1 and polynomial 2</li>
+          <li>
+            Read each term as <code>(coeff, exponent)</code> for both
+            polynomials
+          </li>
+          <li>
+            Initialize pointers <code>i</code>, <code>j</code>, and
+            <code>k</code> to the first term of each polynomial and result
+          </li>
+          <li>
+            while (<code>i < n1</code> and <code>j < n2</code>)
+            <ol>
+              <li>
+                if (<code>A[i].exp == B[j].exp</code>) then
+                <ol>
+                  <li>
+                    <code>SUM[k] = (A[i].coeff + B[j].coeff, A[i].exp)</code>
+                  </li>
+                  <li><code>i++</code>, <code>j++</code>, <code>k++</code></li>
+                </ol>
+              </li>
+              <li>
+                else if (<code>A[i].exp > B[j].exp</code>) then
+                <ol>
+                  <li><code>SUM[k] = A[i]</code></li>
+                  <li><code>i++</code>, <code>k++</code></li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>SUM[k] = B[j]</code></li>
+                  <li><code>j++</code>, <code>k++</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>
+            Copy the remaining terms of the first polynomial to the result
+          </li>
+          <li>
+            Copy the remaining terms of the second polynomial to the result
+          </li>
+          <li>Display the final polynomial sum</li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 3. Sparse Matrix Representation -->
       <li>
         <h2>Sparse Matrix Representation</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the number of rows and columns in the matrix</li>
+          <li>Read all elements of the matrix</li>
+          <li>
+            Initialize <code>sparse[0][0] = row</code>,
+            <code>sparse[0][1] = col</code>, <code>count = 0</code>
+          </li>
+          <li>
+            For each element of the matrix
+            <ol>
+              <li>
+                if (<code>matrix[i][j] != 0</code>) then
+                <ol>
+                  <li>
+                    Store row index, column index, and value in the next triplet
+                  </li>
+                  <li><code>count++</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li><code>sparse[0][2] = count</code></li>
+          <li>Display the triplet representation</li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 4. Sparse Matrix Addition -->
       <li>
         <h2>Sparse Matrix Addition</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the size of both sparse matrices</li>
+          <li>Read the number of non-zero elements in each matrix</li>
+          <li>
+            Read both matrices in triplet form <code>(row, col, value)</code>
+          </li>
+          <li>
+            Initialize pointers <code>i</code>, <code>j</code>, and
+            <code>k</code> to the first non-zero entries of both matrices and
+            the result
+          </li>
+          <li>
+            while (<code>i <= n1</code> and <code>j <= n2</code>)
+            <ol>
+              <li>
+                if (<code>row1[i] == row2[j]</code> and
+                <code>col1[i] == col2[j]</code>) then
+                <ol>
+                  <li><code>sum[k] = (row, col, value1 + value2)</code></li>
+                  <li><code>i++</code>, <code>j++</code>, <code>k++</code></li>
+                </ol>
+              </li>
+              <li>
+                else if (<code>row1[i] < row2[j]</code> or
+                <code>row1[i] == row2[j]</code> and
+                <code>col1[i] < col2[j]</code>) then
+                <ol>
+                  <li><code>sum[k] = A[i]</code></li>
+                  <li><code>i++</code>, <code>k++</code></li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>sum[k] = B[j]</code></li>
+                  <li><code>j++</code>, <code>k++</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Copy remaining elements from the first matrix to the result</li>
+          <li>Copy remaining elements from the second matrix to the result</li>
+          <li>Set the result count and display the triplet matrix</li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 5. Transpose of Sparse Matrix -->
       <li>
         <h2>Transpose of Sparse Matrix</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the number of rows, columns, and non-zero elements</li>
+          <li>
+            Read the sparse matrix in triplet form
+            <code>(row, col, value)</code>
+          </li>
+          <li>
+            For each triplet
+            <ol>
+              <li><code>transpose[i][0] = sparse[i][1]</code></li>
+              <li><code>transpose[i][1] = sparse[i][0]</code></li>
+              <li><code>transpose[i][2] = sparse[i][2]</code></li>
+            </ol>
+          </li>
+          <li>Sort the transposed triplets by row and then by column</li>
+          <li>Display the transposed sparse matrix</li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 6. Stack using Array -->
       <li>
         <h2>Stack Using an Array</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Initialize <code>top = -1</code></li>
+          <li>
+            Repeat until user chooses to exit
+            <ol>
+              <li>Display menu: Push, Pop, Display, Exit</li>
+              <li>Read choice</li>
+              <li>Perform the selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Push</strong>
+            <ol>
+              <li>
+                if (<code>top == MAX-1</code>) then
+                <ol>
+                  <li>print "Stack Overflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>top = top + 1</code></li>
+              <li><code>stack[top] = value</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Pop</strong>
+            <ol>
+              <li>
+                if (<code>top == -1</code>) then
+                <ol>
+                  <li>print "Stack Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>value = stack[top]</code></li>
+              <li><code>top = top - 1</code></li>
+              <li>Display removed value</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>top == -1</code>) then
+                <ol>
+                  <li>print "Stack Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                for (<code>i = top</code> to <code>0</code>)
+                <ol>
+                  <li>print <code>stack[i]</code></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 7. Queue using Array -->
       <li>
         <h2>Queue Using an Array</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Initialize <code>front = -1</code> and <code>rear = -1</code></li>
+          <li>
+            Repeat until user chooses to exit
+            <ol>
+              <li>Display menu: Enqueue, Dequeue, Display, Exit</li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Enqueue</strong>
+            <ol>
+              <li>
+                if (<code>rear >= MAX-1</code>) then
+                <ol>
+                  <li>print "Queue Overflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                if (<code>front == -1</code>) then
+                <ol>
+                  <li><code>front = 0</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>rear = rear + 1</code></li>
+              <li><code>queue[rear] = value</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Dequeue</strong>
+            <ol>
+              <li>
+                if (<code>front == -1</code> or <code>front > rear</code>) then
+                <ol>
+                  <li>print "Queue Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>value = queue[front]</code></li>
+              <li><code>front = front + 1</code></li>
+              <li>Display removed value</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>front == -1</code> or <code>front > rear</code>) then
+                <ol>
+                  <li>print "Queue Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                for (<code>i = front</code> to <code>rear</code>)
+                <ol>
+                  <li>print <code>queue[i]</code></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 8. Circular Queue using Array -->
       <li>
         <h2>Circular Queue Using an Array</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>
+            Initialize <code>front = 0</code>, <code>rear = MAX - 1</code>, and
+            <code>count = 0</code>
+          </li>
+          <li>
+            Repeat until user chooses to exit
+            <ol>
+              <li>Display menu: Enqueue, Dequeue, Display, Exit</li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Enqueue</strong>
+            <ol>
+              <li>
+                if (<code>count == MAX</code>) then
+                <ol>
+                  <li>print "Queue Overflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>rear = (rear + 1) % MAX</code></li>
+              <li><code>queue[rear] = value</code></li>
+              <li><code>count = count + 1</code></li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Dequeue</strong>
+            <ol>
+              <li>
+                if (<code>count == 0</code>) then
+                <ol>
+                  <li>print "Queue Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>value = queue[front]</code></li>
+              <li><code>front = (front + 1) % MAX</code></li>
+              <li><code>count = count - 1</code></li>
+              <li>Display removed value</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>count == 0</code>) then
+                <ol>
+                  <li>print "Queue is Empty"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                for (<code>i = 0</code> to <code>count - 1</code>)
+                <ol>
+                  <li>print <code>queue[(front + i) % MAX]</code></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 9. Dequeue using Array -->
       <li>
         <h2>Dequeue Using an Array</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Initialize <code>front = -1</code> and <code>rear = -1</code></li>
+          <li>
+            Repeat until user chooses to exit
+            <ol>
+              <li>
+                Display menu: Insert Front, Insert Rear, Remove Front, Remove
+                Rear, Display, Exit
+              </li>
+              <li>Read choice</li>
+              <li>Perform selected operation</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert Front</strong>
+            <ol>
+              <li>
+                if (<code>front == 0</code> and <code>rear == MAX-1</code>) then
+                <ol>
+                  <li>print "Queue Overflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                if (<code>front == -1</code>) then
+                <ol>
+                  <li><code>front = 0</code>, <code>rear = 0</code></li>
+                  <li><code>queue[front] = value</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                if (<code>front > 0</code>) then
+                <code>front = front - 1</code> and insert value
+              </li>
+              <li>
+                else shift all elements right by one and insert at the starting
+                position
+              </li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Insert Rear</strong>
+            <ol>
+              <li>
+                if (<code>front == 0</code> and <code>rear == MAX-1</code>) then
+                <ol>
+                  <li>print "Queue Overflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                if (<code>front == -1</code>) then
+                <ol>
+                  <li><code>front = 0</code>, <code>rear = 0</code></li>
+                  <li><code>queue[rear] = value</code></li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                if (<code>rear < MAX-1</code>) then
+                <code>rear = rear + 1</code> and insert value
+              </li>
+              <li>else shift all elements left by one and insert at the end</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Remove Front</strong>
+            <ol>
+              <li>
+                if (<code>front == -1</code> and <code>rear == -1</code>) then
+                <ol>
+                  <li>print "Queue Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>value = queue[front]</code></li>
+              <li>
+                if (<code>front == rear</code>) then
+                <ol>
+                  <li><code>front = rear = -1</code></li>
+                </ol>
+              </li>
+              <li>else <code>front = front + 1</code></li>
+              <li>endif</li>
+              <li>Display removed value</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Remove Rear</strong>
+            <ol>
+              <li>
+                if (<code>front == -1</code> and <code>rear == -1</code>) then
+                <ol>
+                  <li>print "Queue Underflow"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li><code>value = queue[rear]</code></li>
+              <li>
+                if (<code>front == rear</code>) then
+                <ol>
+                  <li><code>front = rear = -1</code></li>
+                </ol>
+              </li>
+              <li>else <code>rear = rear - 1</code></li>
+              <li>endif</li>
+              <li>Display removed value</li>
+            </ol>
+          </li>
+          <li class="operation-header">
+            <strong>Display</strong>
+            <ol>
+              <li>
+                if (<code>front == -1</code>) then
+                <ol>
+                  <li>print "Queue is Empty"</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+              <li>
+                for (<code>i = front</code> to <code>rear</code>)
+                <ol>
+                  <li>print <code>queue[i]</code></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 10. Infix to Postfix Conversion -->
       <li>
         <h2>Infix to Postfix Conversion</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the infix expression</li>
+          <li>Initialize an empty operator stack</li>
+          <li>
+            Scan the expression from left to right
+            <ol>
+              <li>
+                if the character is an operand then
+                <ol>
+                  <li>print it immediately</li>
+                </ol>
+              </li>
+              <li>
+                else if the character is <code>(</code> then
+                <ol>
+                  <li>push it onto the stack</li>
+                </ol>
+              </li>
+              <li>
+                else if the character is <code>)</code> then
+                <ol>
+                  <li>
+                    pop and print operators until <code>(</code> is reached
+                  </li>
+                </ol>
+              </li>
+              <li>
+                else if the character is an operator then
+                <ol>
+                  <li>
+                    while the stack top has an operator of higher or equal
+                    precedence, pop and print it
+                  </li>
+                  <li>push the current operator</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>
+            After scanning the whole expression, pop and print all remaining
+            operators from the stack
+          </li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 11. Postfix Evaluation -->
       <li>
         <h2>Postfix Evaluation</h2>
-        <i>Implemeting Soon</i>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the postfix expression</li>
+          <li>Initialize an empty operand stack</li>
+          <li>
+            Scan the expression from left to right
+            <ol>
+              <li>
+                if the token is a number then
+                <ol>
+                  <li>push it into the stack</li>
+                </ol>
+              </li>
+              <li>
+                else if the token is an operator then
+                <ol>
+                  <li>
+                    pop the top two values as <code>val1</code> and
+                    <code>val2</code>
+                  </li>
+                  <li>apply the operation <code>val1 operator val2</code></li>
+                  <li>push the result back onto the stack</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>
+            When the expression ends, the top of the stack contains the final
+            result
+          </li>
+          <li>Display the result</li>
+          <li>Stop</li>
+        </ol>
       </li>
 
       <!-- 12. Singly Linked List -->
@@ -802,6 +1366,193 @@
               <li>endif</li>
             </ol>
           </li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 16. Linear Search -->
+      <li>
+        <h2>Linear Search</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the array and the target value</li>
+          <li>
+            For each index <code>i</code> from <code>0</code> to
+            <code>n-1</code>
+            <ol>
+              <li>
+                if (<code>array[i] == target</code>) then
+                <ol>
+                  <li>print the index where it was found</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>If no match is found, print "Number not found"</li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 17. Binary Search -->
+      <li>
+        <h2>Binary Search</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the sorted array and the target value</li>
+          <li>Set <code>left = 0</code> and <code>right = n-1</code></li>
+          <li>
+            while (<code>left <= right</code>)
+            <ol>
+              <li><code>mid = (left + right) / 2</code></li>
+              <li>
+                if (<code>array[mid] == target</code>) then
+                <ol>
+                  <li>print the position of the target</li>
+                  <li>exit</li>
+                </ol>
+              </li>
+              <li>
+                else if (<code>array[mid] < target</code>) then
+                <ol>
+                  <li><code>left = mid + 1</code></li>
+                </ol>
+              </li>
+              <li>
+                else
+                <ol>
+                  <li><code>right = mid - 1</code></li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>
+            If the loop ends without finding the value, print "Number not found"
+          </li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 18. Insertion Sort -->
+      <li>
+        <h2>Insertion Sort</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the array elements</li>
+          <li>
+            for (<code>i = 1</code> to <code>n-1</code>)
+            <ol>
+              <li><code>key = array[i]</code></li>
+              <li><code>j = i - 1</code></li>
+              <li>
+                while (<code>j >= 0</code> and <code>array[j] > key</code>)
+                <ol>
+                  <li><code>array[j+1] = array[j]</code></li>
+                  <li><code>j--</code></li>
+                </ol>
+              </li>
+              <li><code>array[j+1] = key</code></li>
+              <li>Display the array after each pass</li>
+            </ol>
+          </li>
+          <li>Display the sorted array</li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 19. Selection Sort -->
+      <li>
+        <h2>Selection Sort</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the array elements</li>
+          <li>
+            for (<code>i = 0</code> to <code>n-2</code>)
+            <ol>
+              <li><code>smallest = i</code></li>
+              <li>
+                for (<code>j = i + 1</code> to <code>n-1</code>)
+                <ol>
+                  <li>
+                    if (<code>array[j] < array[smallest]</code>) then
+                    <ol>
+                      <li><code>smallest = j</code></li>
+                    </ol>
+                  </li>
+                  <li>endif</li>
+                </ol>
+              </li>
+              <li>
+                Swap <code>array[i]</code> and <code>array[smallest]</code>
+              </li>
+              <li>Display the array after each pass</li>
+            </ol>
+          </li>
+          <li>Display the final sorted array</li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 20. Quick Sort -->
+      <li>
+        <h2>Quick Sort</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the array elements</li>
+          <li>
+            Call <code>quickSort(low, high)</code>
+            <ol>
+              <li>
+                if (<code>low < high</code>) then
+                <ol>
+                  <li>Choose the last element as pivot</li>
+                  <li>
+                    Partition the array so that elements smaller than the pivot
+                    are placed on the left and larger elements on the right
+                  </li>
+                  <li><code>pivotIndex = correct position of pivot</code></li>
+                  <li>
+                    Recursively sort the left part
+                    <code>low ... pivotIndex - 1</code>
+                  </li>
+                  <li>
+                    Recursively sort the right part
+                    <code>pivotIndex + 1 ... high</code>
+                  </li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Display the sorted array</li>
+          <li>Stop</li>
+        </ol>
+      </li>
+
+      <!-- 21. Merge Sort -->
+      <li>
+        <h2>Merge Sort</h2>
+        <ol class="procedure">
+          <li>Start</li>
+          <li>Read the array elements</li>
+          <li>
+            Call <code>mergeSort(array, left, right)</code>
+            <ol>
+              <li>
+                if (<code>left < right</code>) then
+                <ol>
+                  <li><code>mid = (left + right) / 2</code></li>
+                  <li>Recursively sort the left half</li>
+                  <li>Recursively sort the right half</li>
+                  <li>Merge the two sorted halves by comparing values</li>
+                </ol>
+              </li>
+              <li>endif</li>
+            </ol>
+          </li>
+          <li>Display the final sorted array</li>
           <li>Stop</li>
         </ol>
       </li>

@@ -14,11 +14,17 @@ This repository contains C programs written for lab problems assigned by Betty M
 - **8_circular_queue.c**: Circular queue implementation
 - **9_dequeue.c**: Double-ended queue (deque) implementation
 - **10_infixtopostfix.c**: Infix to postfix expression conversion
-- **11_postfix_evaluation.c**: Postfix expression evaluation
+- **11_postfixeval.c**: Postfix expression evaluation
 - **12_single_linked_list.c**: Singly linked list implementation
 - **13_doubly_linked_list.c**: Doubly linked list implementation
 - **14_stack_linked_list.c**: Stack implementation using linked list
 - **15_queue_linked_list.c**: Queue implementation using linked list
+- **16_linear_search.c**: Linear search implementation
+- **17_binary_search.c**: Binary search implementation
+- **18_insertion_sort.c**: Insertion sort implementation
+- **19_selection_sort.c**: Selection sort implementation
+- **20_quick_sort.c**: Quick sort implementation
+- **21_merge_sort.c**: Merge sort implementation
 
 **_Note_:** All programs are verified to be based on Algorithms of Betty Miss. No AI Slop. Thank You
 

@@ -1,86 +1,62 @@
 #include <stdio.h>
 
-void display(int arr[], int size)
-{
-    int i;
+int a[100];
+int n;
 
-    for (i = 0; i < size; i++)
-    {
-        printf("%d ", arr[i]);
+void show() {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
     }
     printf("\n");
 }
 
-int partition(int arr[], int low, int high, int size)
-{
-    int pivot = arr[high];
-    int i = low - 1;
-    int j;
-    int temp;
+void quicksort(int low, int high) {
+    if (low < high) {
+        int pivot = a[high];
+        int i = low - 1;
 
-    printf("Pivot is %d\n", pivot);
+        printf("\nPivot is %d\n", pivot);
 
-    for (j = low; j < high; j++)
-    {
-        if (arr[j] < pivot)
-        {
-            i++;
-
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-
-            printf("After swapping: ");
-            display(arr, size);
+        for (int j = low; j < high; j++) {
+            if (a[j] < pivot) {
+                i++;
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                printf("Swapped %d and %d: ", a[j], a[i]);
+                show();
+            }
         }
-    }
 
-    temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
+        int temp = a[i + 1];
+        a[i + 1] = a[high];
+        a[high] = temp;
+        printf("Put pivot %d at spot %d: ", pivot, i + 1);
+        show();
 
-    printf("After placing pivot: ");
-    display(arr, size);
+        int pi = i + 1;
 
-    return i + 1;
-}
-
-void quickSort(int arr[], int low, int high, int size)
-{
-    int pivotPosition;
-
-    if (low < high)
-    {
-        pivotPosition = partition(arr, low, high, size);
-
-        quickSort(arr, low, pivotPosition - 1, size);
-        quickSort(arr, pivotPosition + 1, high, size);
+        quicksort(low, pi - 1);
+        quicksort(pi + 1, high);
     }
 }
 
-int main()
-{
-    int arr[100];
-    int size;
-    int i;
+int main() {
+    printf("Enter how many numbers: ");
+    scanf("%d", &n);
 
-    printf("Enter the number of elements: ");
-    scanf("%d", &size);
-
-    printf("Enter the elements:\n");
-    for (i = 0; i < size; i++)
-    {
-        scanf("%d", &arr[i]);
+    printf("Enter the numbers: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
     }
 
-    printf("\nOriginal array: ");
-    display(arr, size);
+    printf("\nStart: ");
+    show();
 
-    printf("\nSteps of quick sort:\n");
-    quickSort(arr, 0, size - 1, size);
+    quicksort(0, n - 1);
 
-    printf("\nSorted array: ");
-    display(arr, size);
+    printf("\nDone: ");
+    show();
 
     return 0;
 }
